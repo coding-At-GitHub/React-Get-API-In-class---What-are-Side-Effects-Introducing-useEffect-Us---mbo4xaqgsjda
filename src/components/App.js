@@ -28,6 +28,20 @@ function App() {
   /**
    * fetch data from api on mount. 
    */
+  const fetchData = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      setData(data)
+      // console.log(data);
+    })
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
+
 
   return (
   <div className='App'>
